@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import WebApp from '@twa-dev/sdk';
@@ -28,8 +28,8 @@ const theme = createTheme({
   },
 });
 
-function App() {
-  useEffect(() => {
+const App = () => {
+  React.useEffect(() => {
     // Initialize Telegram WebApp
     WebApp.ready();
     WebApp.expand();
@@ -38,7 +38,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <Router>
         <div style={{ 
           maxWidth: '100%', 
           minHeight: '100vh',
@@ -54,9 +54,9 @@ function App() {
           </Routes>
           <Navigation />
         </div>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

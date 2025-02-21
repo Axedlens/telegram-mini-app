@@ -1,13 +1,10 @@
-import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import {
-  Home as HomeIcon,
-  Casino as InventoryIcon,
-  AttachMoney as EarnIcon,
-  Group as InviteIcon,
-  AccountBalanceWallet as WalletIcon,
-} from '@mui/icons-material';
+import HomeIcon from '@mui/icons-material/Home';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ShareIcon from '@mui/icons-material/Share';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -20,8 +17,7 @@ const Navigation = () => {
         bottom: 0, 
         left: 0, 
         right: 0,
-        borderRadius: '16px 16px 0 0',
-        overflow: 'hidden'
+        borderTop: '1px solid rgba(255, 255, 255, 0.12)'
       }} 
       elevation={3}
     >
@@ -30,10 +26,7 @@ const Navigation = () => {
         onChange={(_, newValue) => {
           navigate(newValue);
         }}
-        sx={{
-          background: 'rgba(45, 45, 45, 0.95)',
-          backdropFilter: 'blur(10px)',
-        }}
+        showLabels
       >
         <BottomNavigationAction
           label="Home"
@@ -48,17 +41,17 @@ const Navigation = () => {
         <BottomNavigationAction
           label="Earn"
           value="/earn"
-          icon={<EarnIcon />}
+          icon={<AttachMoneyIcon />}
         />
         <BottomNavigationAction
           label="Invite"
           value="/invite"
-          icon={<InviteIcon />}
+          icon={<ShareIcon />}
         />
         <BottomNavigationAction
           label="Wallet"
           value="/wallet"
-          icon={<WalletIcon />}
+          icon={<AccountBalanceWalletIcon />}
         />
       </BottomNavigation>
     </Paper>
