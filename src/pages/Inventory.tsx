@@ -106,7 +106,7 @@ const GameCard = ({
 const Inventory = () => {
   const [tabValue, setTabValue] = useState(0);
 
-  const handleTabChange = (newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 
